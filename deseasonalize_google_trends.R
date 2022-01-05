@@ -2,13 +2,22 @@ library(forecast)
 library(ggplot2)
 library(readr)
 
-df <- read_csv('10_years_to_present_get_healthy.csv', skip=2)
+art <- c("               __", "              / _)", "     _.----._/ /", 
+         "    / melanie /", " __/ (  | (  |", "/__.-'|_|--|_|")
+cat(art, sep = "\n")
+
+df <- read_csv('data.csv', skip=2)
+#Rename data.csv above to something descriptive like keyword_timeperiod_US.csv
+#Also name the file you download from Google trends to this.
+
 summary(df)
 head(df)
 colnames(df) <- c('month','rel_popularity')
 head(df)
 
 x <- ts(df$rel_popularity, frequency = 12)
+#Be leery of frequecy. Shorter times periods downloaded from Google trends report in weeks.
+#In the case of weeks, set frequency = 52
 plot(x)
 stl(x, "periodic")
 decomposed <- stl(x, s.window="periodic")
