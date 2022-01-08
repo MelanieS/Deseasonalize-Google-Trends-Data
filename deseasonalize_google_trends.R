@@ -16,7 +16,7 @@ colnames(df) <- c('month','rel_popularity')
 head(df)
 
 x <- ts(df$rel_popularity, frequency = 12)
-#Be leery of frequecy. Shorter times periods downloaded from Google trends report in weeks.
+#Be leery of frequency. Shorter times periods downloaded from Google trends report in weeks.
 #In the case of weeks, set frequency = 52
 plot(x)
 stl(x, "periodic")
