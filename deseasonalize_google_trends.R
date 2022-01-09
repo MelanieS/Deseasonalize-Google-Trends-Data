@@ -18,7 +18,7 @@ x <- ts(df$rel_popularity, frequency = 12)
 plot(x)
 stl(x,"periodic")
 decomp_x <- stl(x, s.window="periodic")
-plot(decomp_x, col="blue")
+plot(decomp_x)
 #large remainders -20 and +10, detect and remove outliers to minimize noise
 #March 2020 (~t=9) can be detected by sight
 
@@ -34,5 +34,5 @@ lines(clean,col="green")
 
 stl(clean, "periodic")
 decomp_clean <- stl(clean, s.window="periodic")
-plot(decomp_clean, col="green")
-#much smaller remainders
+plot(decomp_clean)
+$#much smaller remainders
