@@ -35,4 +35,4 @@ lines(clean,col="green")
 stl(clean, "periodic")
 decomp_clean <- stl(clean, s.window="periodic")
 plot(decomp_clean)
-$#much smaller remainders
+#much smaller remainders
